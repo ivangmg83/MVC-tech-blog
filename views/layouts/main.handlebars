@@ -17,16 +17,34 @@
     <a href="/">Home</a>
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
+    <button id="logout" class="btn-no-style">Dashboard</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
   </nav>
   <main>
     <div class="gallery">
+      {{#if loggedIn}}
+      <form id="comment-form">
+            <div>
+              <div>
+              <input type="text" id="title" />
+            </div>
+            <div>
+              <p>Title</p>
+            </div>
+              <input type="text" id="content" />
+            </div>
+            <div>
+              <button type="submit">Create new Post</button>
+            </div>
+      </form>
+      {{/if}}
       {{{body}}}
     </div>
   </main>
   {{#if loggedIn}}
+  <script src="/js/newPost.js"></script>
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
